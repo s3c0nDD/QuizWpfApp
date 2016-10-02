@@ -95,6 +95,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="DAO\DAO.csproj">
+      <Project>{19b5a55f-ae15-4ee4-8688-e2914b79d33c}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="Interfaces\Interfaces.csproj">
+      <Project>{46c4017a-e05b-45eb-82aa-36e04219b804}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
