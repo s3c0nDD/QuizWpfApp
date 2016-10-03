@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Interfaces
 {
-    interface ITest
+    public interface ITest
     {
         int ID { get; set; }
-        string Name { get; set; }
+        string Text { get; set; }
         int Time { get; set; }
         int PointsTotal { get; set; }
 
