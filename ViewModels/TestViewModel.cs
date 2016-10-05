@@ -14,15 +14,37 @@ namespace WpfMvvmApp.ViewModels
         public TestViewModel(ITest test)
         {
             _test = test;
+            _testResult = 0;
 
             _questions = new ObservableCollection<QuestionViewModel>();
             foreach (var question in test.Questions)
             {
+                _testResult += question.Points;
                 _questions.Add(new QuestionViewModel(question));
             }
         }
 
-        public int TestResult { get; set; }
+        public int QuestionCount
+        {
+            get
+            {
+                return _questions.Count;
+            }
+        }
+
+        private int _testResult;
+        public int TestResult
+        {
+            get
+            {
+                return _testResult;
+            }
+            set
+            {
+                _testResult = value;
+                RaisePropertyChanged("TestResult");
+            }
+        }
 
         private ITest _test;
         public ITest Test
