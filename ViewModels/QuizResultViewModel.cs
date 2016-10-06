@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace WpfMvvmApp.ViewModels
 {
@@ -12,11 +13,12 @@ namespace WpfMvvmApp.ViewModels
         public QuizResultViewModel(RootViewModel vm, TestViewModel testvm) : base(vm)
         {
             TestViewModel = testvm;
+
+            _endQuizCommand= new RelayCommand((param) => this.EndQuiz());
         }
 
         public TestViewModel TestViewModel { get; set; }
 
-        private int _testResult;
         public int TestResult
         {
             get
@@ -31,6 +33,21 @@ namespace WpfMvvmApp.ViewModels
             {
                 return TestViewModel.Test.PointsTotal;
             }
+        }
+
+        private RelayCommand _endQuizCommand;
+        public ICommand EndQuizCommand
+        {
+            get
+            {
+                return _endQuizCommand;
+            }
+        }
+
+        private void EndQuiz()
+        {
+            
+            Parent.CurrentView = new TestListViewModel(Parent);
         }
 
         // INotifyPropertyChanged
