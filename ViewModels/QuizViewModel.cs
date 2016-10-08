@@ -63,9 +63,13 @@ namespace WpfMvvmApp.ViewModels
                 // zlicz wynik
                 IQuestion _question = TestViewModel.Test
                                         .Questions.ElementAt(_questionCounter - 1);
-                if (true
-                    /* TODO: _question.CorrectAnswers is equal as _markedAnswers */
-                ) {
+                /* TODO below: _question.CorrectAnswers is equal as _markedAnswers */
+                foreach (var answer in _question.Answers)
+                {
+                    //answer.IsCorrect
+                }
+                if (true)
+                {
                     TestViewModel.TestResult += _question.Points;
                 }
                 // przejdź do następnego pytania

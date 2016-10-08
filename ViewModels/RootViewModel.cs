@@ -14,8 +14,8 @@ namespace WpfMvvmApp.ViewModels
         {
             _dao = new DAO.DAO();
             _dao.GetAllTests();
-            
-            //CurrentView = new TestsListViewModel(this); 
+
+            CurrentView = new TestListViewModel(this);
         }
 
         private BaseViewModel _currentView;
