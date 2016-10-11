@@ -62,7 +62,8 @@ namespace DAO
             _questions = new List<IQuestion>()
             {
                 new DO.Question(0, 0, "Jak nazywa się przedmiot?", 1),
-                new DO.Question(1, 1, "Czy Ziemia jest okrągła?", 1)
+                new DO.Question(1, 1, "Czy Ziemia jest okrągła?", 1),
+                new DO.Question(1, 1, "Czy Ziemia jest okrągła?", 1),
             };
 
             _answers = new List<IAnswer>()

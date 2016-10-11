@@ -18,7 +18,8 @@
                 <Label Width="100" Content="Liczba pytań" FontSize="14" Background="Black" Foreground="White"/>
                 <Label Width="100" Content="Punkty" FontSize="14" Background="Black" Foreground="White"/>
             </StackPanel>
-            <ListBox ItemsSource="{Binding Path=Tests}" SelectedItem="{Binding SelectedTest}" Background="White" MaxHeight="200">
+            <ListBox ItemsSource="{Binding Tests}" SelectedItem="{Binding SelectedTest}" Background="White" MaxHeight="200"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

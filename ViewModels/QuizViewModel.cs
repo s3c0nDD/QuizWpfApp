@@ -15,7 +15,7 @@ namespace WpfMvvmApp.ViewModels
         {
             Test = testvm.Test;
             TestViewModel = testvm;
-            _currentQuestion = testvm.Questions.FirstOrDefault();
+            _currentQuestion = testvm.Questions.FirstOrDefault();       //TODO: here is null?
 
             _questionCounter = 0;
 

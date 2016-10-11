@@ -26,7 +26,20 @@ namespace WpfMvvmApp.ViewModels
         }
 
         private IDAO _dao;
+
         private ObservableCollection<TestViewModel> _tests;
+        public ObservableCollection<TestViewModel> Tests
+        {
+            get
+            {
+                return _tests;
+            }
+            set
+            {
+                _tests = value;
+                RaisePropertyChanged("Tests");
+            }
+        }
 
         private TestViewModel _selectedTest;
         public TestViewModel SelectedTest
