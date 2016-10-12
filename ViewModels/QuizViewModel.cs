@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace WpfMvvmApp.ViewModels
@@ -23,6 +24,7 @@ namespace WpfMvvmApp.ViewModels
         }
 
         private int _questionCounter;
+        private int _quizResult = 0;
 
         public ITest Test { get; set; }
         public TestViewModel TestViewModel { get; set; }
@@ -56,7 +58,10 @@ namespace WpfMvvmApp.ViewModels
             if (_questionCounter >= TestViewModel.Questions.Count)
             {
                 // zakończ test
+                MessageBox.Show("Gratulacje, twój wynik to: " + _quizResult + " / " +  Test.PointsTotal + " pkt"
+                    , "Wynik testu", MessageBoxButton.OK);
                 Parent.CurrentView = new TestListViewModel(Parent);
+
             }
             else
             {
