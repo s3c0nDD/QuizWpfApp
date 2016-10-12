@@ -13,7 +13,6 @@ namespace Interfaces
         string Text { get; set; }
         int Points { get; set; }
 
-        int AnswersNr { get; set; }
         List<IAnswer> Answers { get; set; }
         List<IAnswer> CorrectAnswers { get; set; }
     }

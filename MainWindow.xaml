@@ -8,13 +8,10 @@
         xmlns:views="clr-namespace:WpfMvvmApp.Views"
         xmlns:dao="clr-namespace:DAO;assembly=DAO"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="400">
+        Title="MainWindow" Height="400" Width="600">
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewmodels:QuizViewModel}">
             <views:QuizView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:QuizResultViewModel}">
-            <views:QuizResultView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:TestListViewModel}">
             <views:TestListView/>

@@ -14,7 +14,6 @@ namespace DAO.DO
         private string _text;
         private int _points;
 
-        private int _answersNr;
         private List<IAnswer> _answers;
         private List<IAnswer> _correctAnswers;
 
@@ -74,18 +73,6 @@ namespace DAO.DO
             set
             {
                 _points = value;
-            }
-        }
-
-        public int AnswersNr
-        {
-            get
-            {
-                return _answersNr;
-            }
-            set
-            {
-                _answersNr = value;
             }
         }
 

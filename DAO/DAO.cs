@@ -53,9 +53,9 @@ namespace DAO
         {
             _answers = new List<IAnswer>()
             {
-                new DO.Answer(0, 0, "Programowanie Wizualne", true),
-                new DO.Answer(1, 0, "Metody Probabilistyczne", false),
-                new DO.Answer(2, 0, "Matematyka Dyskretna", false),
+                new DO.Answer(0, 0, "Metody Probabilistyczne", true),
+                new DO.Answer(1, 0, "Matematyka Dyskretna", true),
+                new DO.Answer(2, 0, "Programowanie Wizualne", false),
 
                 new DO.Answer(3, 1, "Tak", true),
                 new DO.Answer(4, 1, "Nie", false),
@@ -78,9 +78,9 @@ namespace DAO
 
             _questions = new List<IQuestion>()
             {
-                new DO.Question(0, 0, "Jak nazywa się przedmiot, który zaliczę tym projektem ?", 1),
+                new DO.Question(0, 0, "Jak nie nazywa się przedmiot, który zaliczę tym projektem ?", 1),
 
-                new DO.Question(1, 1, "Czy Ziemia jest okrągła?", 1),
+                new DO.Question(1, 0, "Czy Ziemia jest okrągła?", 1),
                 new DO.Question(2, 1, "Czy księżyc krąży wokół Ziemi?", 1),
 
                 new DO.Question(3, 2, "Z iloma krajami graniczy Polska:", 1),

@@ -21,18 +21,26 @@ namespace WpfMvvmApp.ViewModels
             foreach (var question in test.Questions)
             {
                 _testResult += question.Points;
+                _questionCount++;
                 _questions.Add(new QuestionViewModel(question));
             }
         }
 
-        private IDAO _dao;
-
-
+        private int _questionCount;
         public int QuestionCount
         {
             get
             {
-                return _questions.Count;
+                return _questionCount;
+            }
+        }
+
+        private int _pointsTotal;
+        public int PointsTotal
+        {
+            get
+            {
+                return _test.PointsTotal;
             }
         }
 
@@ -88,7 +96,9 @@ namespace WpfMvvmApp.ViewModels
         private ObservableCollection<QuestionViewModel> _questions;
         public ObservableCollection<QuestionViewModel> Questions
         {
-            get { return _questions; }
+            get {
+                return _questions;
+            }
             set
             {
                 _questions = value;

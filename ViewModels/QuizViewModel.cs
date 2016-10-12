@@ -55,28 +55,27 @@ namespace WpfMvvmApp.ViewModels
         private void NextQuestion()
         {
             _questionCounter += 1;
+
+            // zlicz wynik
+            if (_currentQuestion.ShouldGivePoints)
+            {
+                _quizResult += _currentQuestion.Points;
+            }
+            
+            // w zależności od tego czy są jeszcze pytania....
             if (_questionCounter >= TestViewModel.Questions.Count)
             {
                 // zakończ test
-                MessageBox.Show("Gratulacje, twój wynik to: " + _quizResult + " / " +  Test.PointsTotal + " pkt"
-                    , "Wynik testu", MessageBoxButton.OK);
+                MessageBoxResult result = MessageBox.Show(
+                    "Gratulacje, twój wynik to: " + _quizResult + " / " + Test.PointsTotal + " pkt",
+                    "Wynik testu", MessageBoxButton.OK
+                    );
+
                 Parent.CurrentView = new TestListViewModel(Parent);
 
             }
             else
             {
-                // zlicz wynik
-                IQuestion _question = TestViewModel.Test
-                                        .Questions.ElementAt(_questionCounter - 1);
-                /* TODO below: _question.CorrectAnswers is equal as _markedAnswers */
-                foreach (var answer in _question.Answers)
-                {
-                    // sprawdz czy zaznaczone sa dobre odpowiedzi i podlicz wynik
-                }
-                if (true)
-                {
-                    TestViewModel.TestResult += _question.Points;
-                }
                 // przejdź do następnego pytania
                 CurrentQuestion = TestViewModel.Questions.ElementAt(_questionCounter);
             }

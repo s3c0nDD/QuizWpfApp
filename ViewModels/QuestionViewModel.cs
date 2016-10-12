@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,16 +89,45 @@ namespace WpfMvvmApp.ViewModels
             }
         }
 
-        public int AnswersNr
+        public bool ShouldGivePoints
         {
             get
             {
-                return _question.AnswersNr;
+                bool result = true;
+                int counter = 0;
+                foreach (var answer in _answers)
+                {
+                    if (answer.IsMarked && answer.IsCorrect)
+                    {
+                        //_result = true;
+                        counter++;
+                        Trace.WriteLine("DOBRA odp");
+                    }
+                    else if (answer.IsMarked && !answer.IsCorrect)
+                    {
+                        Trace.WriteLine("ZLA odp - zaznaczona niepoprawna odp!");
+                        result = false;
+                        break;
+                    }
+                    else if (!answer.IsMarked && answer.IsCorrect)
+                    {
+                        Trace.WriteLine("ZLA odp - niezaznaczona poprawna odp!");
+                        result = false;
+                        break;
+                    }
+                    //if (counter > 1)
+                    //{
+                    //    Trace.WriteLine("ZLA odp - niezaznaczona poprawna odp!");
+                    //    result = false;
+                    //}
+                }
+
+                return result;
             }
             set
             {
-                _question.AnswersNr = value;
-                RaisePropertyChanged("AnswersNr");
+                ShouldGivePoints = value;
+                RaisePropertyChanged("ShouldGivePoints");
             }
         }
 
