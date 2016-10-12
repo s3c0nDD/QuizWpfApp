@@ -22,6 +22,7 @@ namespace DAO.DO
             _ID = ID;
             _text = text;
             _time = time;
+            _pointsTotal = 0;
             _questions = new List<IQuestion>();
         }
 

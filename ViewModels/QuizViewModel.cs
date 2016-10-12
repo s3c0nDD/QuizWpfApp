@@ -53,7 +53,7 @@ namespace WpfMvvmApp.ViewModels
         private void NextQuestion()
         {
             _questionCounter += 1;
-            if (_questionCounter > TestViewModel.Questions.Count)
+            if (_questionCounter >= TestViewModel.Questions.Count)
             {
                 // zakończ test
                 Parent.CurrentView = new TestListViewModel(Parent);
@@ -66,15 +66,14 @@ namespace WpfMvvmApp.ViewModels
                 /* TODO below: _question.CorrectAnswers is equal as _markedAnswers */
                 foreach (var answer in _question.Answers)
                 {
-                    //answer.IsCorrect
+                    // sprawdz czy zaznaczone sa dobre odpowiedzi i podlicz wynik
                 }
                 if (true)
                 {
                     TestViewModel.TestResult += _question.Points;
                 }
                 // przejdź do następnego pytania
-                CurrentQuestion = 
-                    TestViewModel.Questions.ElementAt(_questionCounter);
+                CurrentQuestion = TestViewModel.Questions.ElementAt(_questionCounter);
             }
         }
 

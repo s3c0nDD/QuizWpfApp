@@ -21,7 +21,7 @@ namespace DAO.DO
         public Question(int ID, int testID, string text, int points)
         {
             _ID = ID;
-            _testID = ID;
+            _testID = testID;
             _text = text;
             _points = points;
 
